@@ -1,4 +1,4 @@
-# clinicMedica
+# ClinicMedica
 ## Group4's project
 
 1.groupMember
