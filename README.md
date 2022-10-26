@@ -7,7 +7,7 @@
 
     Haiwei Nan 300250954 hnan059@uottawa.ca
 
-    Huaqing Qi
+    Huajing Qi 300254157 hqi053@uottawa.ca
 
     Manjie Hou 300254157 mhou062@uottawa.ca
     
