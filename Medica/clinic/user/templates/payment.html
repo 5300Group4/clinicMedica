@@ -1,0 +1,76 @@
+
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://use.fontawesome.com/aa95071b26.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/payment.css' %}" type="text/css" media="all">
+<script src="/static/js/payment.js"></script>
+<div id="body">
+  <div class="out-wrap">
+    <h1 class="text-center">Enter Card Details</h1>
+    <div id="payment" ng-app="myApp" ng-controller="myCtrl">
+      <div class="details">
+        <div class="input-wrap four-num">
+          <label>Card Number</label>
+          <input maxlength="4" ng-model="f4" type="text">
+          <input maxlength="4" ng-model="s4" type="text">
+          <input maxlength="4" ng-model="t4" type="text">
+          <input maxlength="4" ng-model="l4" type="text">
+        </div>
+        <div class="input-wrap">
+          <label>Card Holder's Name </label>
+          <input ng-model="hname" type="text">
+        </div>
+        <div class="halfbox">
+          <div class="input-wrap">
+            <label>Valid Till</label>
+            <div class="twin">
+              <input maxlength="2" ng-model="edm" type="text">
+              <input maxlength="2" ng-model="edy" type="text">
+            </div>
+          </div>
+
+          <div class="input-wrap">
+            <label>CVV</label>
+            <input maxlength="3" ng-model="cvv" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="clayout">
+            <div class="c-front">
+              <p class="chiplogo">
+                <span class="chip">
+                  <b></b></span>
+                <span class="logo">
+                  <b class="master"></b>
+                </span>
+              </p>
+              <p class="cnum">
+                <span ng-bind="f4">XXXX</span> - <span ng-bind="s4">XXXX</span> - <span ng-bind="t4">XXXX</span> - <span ng-bind="l4">XXXX</span>
+              </p>
+              <P class="cname"><span>Card Holder</span><label ng-bind="hname">PRAVEEN KUMAR GORAKALA</label></P>
+              <P class="cvtr"><span>Valid Till</span><label ng-bind="edm">01</label> / <label ng-bind="edy">28</label></P>
+            </div>
+            <div class="c-back">
+              <p class="topc"><span>136589420</span><span>sddv5</span></p>
+              <p class="backit"></p>
+              <p class="cvv"><span>CVV</span><b ng-bind="cvv"></b></p>
+              <p class="chiplogo">
+                <span class="logo">
+                  <b class="master"></b>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
