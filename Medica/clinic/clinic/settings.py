@@ -76,22 +76,17 @@ WSGI_APPLICATION = 'clinic.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 #Please use MySQL 5.7
+#Succefully connectedm,please don't edit
 DATABASES = {
     'default': {
-        'NAME': 'Medica',
-        'ENGINE': 'mysql.connector.django',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'medica',
         'USER': 'root',
         'PASSWORD': 'root',
-        'OPTIONS': {
-            'autocommit': True,
-            'use_oure': True,
-            'init_command': "SET foo='bar';"
-        },
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

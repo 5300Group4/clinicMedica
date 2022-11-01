@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+#Please be specific when you writing the PATH unless it's mainpage
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('login.urls')),
+    # access through http://127.0.0.1:8000/login/
+    #login includes login function and register function
+    path('login/', include('login.urls')), 
     path('', include('user.urls')),
 ]
