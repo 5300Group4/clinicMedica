@@ -1,5 +1,9 @@
-1. 安装 MySQL 5.7
+1. 使用installer安装 MySQL 5.7 
+https://dev.mysql.com/downloads/file/?id=514518
 
 2. pip install mysqlclient
 
-3. 导入数据库
+3. 通过MySQL workbench的data import功能导入数据库
+(clinic/dumps)
+
+4. python manage.py runserver
