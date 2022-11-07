@@ -17,3 +17,8 @@ class Payment(models.Model):
     # contact=models.CharField(max_length=255)
     # objects=models.Manager()
     #image = models.ImageField(upload_to='images/%Y/%m', default='images/default.png', max_length=100, verbose_name='用户头像')
+
+class Doctor(models.Model):
+    name = models.CharField(max_length=32)
+    introduction = models.CharField(max_length=255)
+    picture = models.CharField(max_length=255)
