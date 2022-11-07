@@ -128,3 +128,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
+# # 设置图片等静态文件的路径
+# STATICFILES_DIRS = (
+#     ('css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
+#     ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+#     ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+#     ('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+# )
+
+EMAIL_USE_SSL = True
+#EMAIL_USE_TSL = True
+EMAIL_HOST = 'smtp.gmail.com'  # use gmail interface
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'qi912675127@gmail.com' # 帐号
+EMAIL_HOST_PASSWORD = 'qtphxrswgwreovuf'  # 密码
+DEFAULT_FROM_EMAIL = 'Medica Center <qi912675127@gmail.com>'
