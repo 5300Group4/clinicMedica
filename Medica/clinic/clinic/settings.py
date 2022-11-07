@@ -83,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'medica',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': 'qi990428',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -134,3 +134,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 用于支付的环境变量 请勿更改
 STRIPE_PUBLISHABLE_KEY = 'pk_test_51LfsxDBk6HVAywFcleWccBNnxbnuKPIRivlxw97Y80zxnxPWHAJwj82Bzqnv581hXgxPFGhB0rWshV2RC0HkWOaP00Uv6HlURv'
 STRIPE_SECRET_KEY = 'sk_test_51LfsxDBk6HVAywFcLdzMXi2qN0WKZOuNVKFuMxQYSBoxyyO34neGqxEkegOXGbKgrttncO9iDhWLnNffFk11A1z7003Q2ZTIhh'
+
+# STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
+# # 设置图片等静态文件的路径
+# STATICFILES_DIRS = (
+#     ('css',os.path.join(STATIC_ROOT,'css').replace('\\','/') ),
+#     ('js',os.path.join(STATIC_ROOT,'js').replace('\\','/') ),
+#     ('images',os.path.join(STATIC_ROOT,'images').replace('\\','/') ),
+#     ('upload',os.path.join(STATIC_ROOT,'upload').replace('\\','/') ),
+# )
+
+EMAIL_USE_SSL = True
+#EMAIL_USE_TSL = True
+EMAIL_HOST = 'smtp.gmail.com'  # use gmail interface
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'qi912675127@gmail.com' # 帐号
+EMAIL_HOST_PASSWORD = 'qtphxrswgwreovuf'  # 密码
+DEFAULT_FROM_EMAIL = 'Medica Center <qi912675127@gmail.com>'
