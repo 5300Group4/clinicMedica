@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'user',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# djangostripe/settings.py
+# 用于支付的环境变量 请勿更改
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51LfsxDBk6HVAywFcleWccBNnxbnuKPIRivlxw97Y80zxnxPWHAJwj82Bzqnv581hXgxPFGhB0rWshV2RC0HkWOaP00Uv6HlURv'
+STRIPE_SECRET_KEY = 'sk_test_51LfsxDBk6HVAywFcLdzMXi2qN0WKZOuNVKFuMxQYSBoxyyO34neGqxEkegOXGbKgrttncO9iDhWLnNffFk11A1z7003Q2ZTIhh'
