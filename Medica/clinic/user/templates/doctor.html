@@ -50,7 +50,18 @@
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
+                {% for data in dataset %}.
                 <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">{{data.name}}</h2>
+                            <p class="card-text">{{data.introduction}}</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'appointment' data.id %}">Make an Appointment</a></div>
+                    </div>
+                </div>
+	            {% endfor %}
+                <!-- <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">Rebecca Johnson</h2>
@@ -85,7 +96,7 @@
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="http://127.0.0.1:8000/appointment/">Make an Appointment</a></div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Footer-->

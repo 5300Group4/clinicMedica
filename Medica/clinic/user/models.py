@@ -6,6 +6,7 @@ class Appointment(models.Model):
     email = models.EmailField(max_length=32)
     phone_number = models.CharField(max_length=32)
     date = models.DateField()
+    doctor = models.CharField(max_length=32, null=True)
     comment = models.CharField(max_length=64)
 
 class Payment(models.Model):
