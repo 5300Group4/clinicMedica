@@ -35,6 +35,8 @@ def doctor(request):
 
 def appointment(request,id):
     obj = get_object_or_404(Doctor, id = id)
+    context ={}
+    context["doctor"] = obj.name
     if request.method == 'POST':   # 判断采用的是何种请求
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
@@ -57,5 +59,5 @@ def appointment(request,id):
             '912675127@qq.com',
             [email],
         )
-    return render(request, 'appointment.html', {})
+    return render(request, 'appointment.html', context)
 
