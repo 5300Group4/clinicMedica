@@ -1,4 +1,4 @@
-
+<!-- 
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
@@ -13,7 +13,10 @@
 <div id="body">
   <div class="out-wrap">
     <h1 class="text-center">Enter Card Details</h1>
+    <form method="post">
+      {% csrf_token %}
     <div id="payment" ng-app="myApp" ng-controller="myCtrl">
+    
       <div class="details">
         <div class="input-wrap four-num">
           <label>Card Number</label>
@@ -72,5 +75,17 @@
         </div>
       </div>
     </div>
+    <form />
   </div>
-</div>
+</div> -->
+
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="username" placeholder="Username" required="required" />
+  <input type="email" name="email" placeholder="Email" required="required" />
+  <input type="text" name="value" placeholder="Value" required="required" />
+  <input type="text" name="doctor" placeholder="Doctor" required="required" />
+
+
+  <button type="submit" class="btn btn-primary btn-block btn-large">Pay.</button>
+</form>

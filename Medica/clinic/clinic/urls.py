@@ -23,4 +23,6 @@ urlpatterns = [
     #login includes login function and register function
     path('login/', include('login.urls')), 
     path('', include('user.urls')),
+    path('', include('payment.urls')),
+
 ]

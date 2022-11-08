@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'user',
+    'payment',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'medica',
         'USER': 'root',
-        'PASSWORD': 'qi990428',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -128,6 +129,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# djangostripe/settings.py
+# 用于支付的环境变量 请勿更改
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51LfsxDBk6HVAywFcleWccBNnxbnuKPIRivlxw97Y80zxnxPWHAJwj82Bzqnv581hXgxPFGhB0rWshV2RC0HkWOaP00Uv6HlURv'
+STRIPE_SECRET_KEY = 'sk_test_51LfsxDBk6HVAywFcLdzMXi2qN0WKZOuNVKFuMxQYSBoxyyO34neGqxEkegOXGbKgrttncO9iDhWLnNffFk11A1z7003Q2ZTIhh'
 
 # STATIC_ROOT = os.path.join(os.path.dirname(__file__),'static')
 # # 设置图片等静态文件的路径
