@@ -23,10 +23,10 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+    location = models.CharField(max_length=20, null=True)
 
 class Location(models.Model):
     address = models.CharField(max_length=32)
     city = models.CharField(max_length=32)
     clinic_number = models.CharField(max_length=255)
     clinic_picture = models.CharField(max_length=255)
-
