@@ -3,6 +3,7 @@ from user.models import Payment
 from django.contrib.auth import authenticate, login
 from user.models import Appointment
 from user.models import Doctor
+from user.models import Location
 from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
@@ -62,3 +63,13 @@ def appointment(request,id):
         )
     return render(request, 'appointment.html', context)
 
+
+def location(request):
+    # dictionary for initial data with
+    # field names as keys
+    context = {}
+
+    # add the dictionary during initialization
+    context["dataset"] = Location.objects.all()
+
+    return render(request, 'location.html', context)

@@ -50,18 +50,12 @@
             </div>
             <!-- Content Row-->
             <div class="row gx-4 gx-lg-5">
-                {% for data in dataset %}
-                <div class="col-md-4 mb-4">
+                {% for data in dataset %}.
+                <div class="col-md-4 mb-5">
                     <div class="card h-100">
                         <div class="card-body">
                             <h2 class="card-title">{{data.name}}</h2>
-                            <div class="row gx-4 gx-lg-5 align-items-center my-5">
-                                <div class="col-lg-4" style="padding: 0 0 0 20px;"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'images/doctor.png' %}" alt="..." /></div>
-                                <div class="col-lg-8">
-                                    <p style="font-weight: 600;" class="card-text">Professional Field:</p>
-                                    <p class="card-text">{{data.introduction}}</p>
-                                </div>
-                            </div>
+                            <p class="card-text">{{data.introduction}}</p>
                         </div>
                         <div class="card-footer"><a class="btn btn-primary btn-sm" href="{% url 'appointment' data.id %}">Make an Appointment</a></div>
                     </div>
