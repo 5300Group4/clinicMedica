@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def payment(request):
     return render(request, 'payment.html', {})
+
+def appointment_mag(request):
+    return render(request, 'appointment_mag.html', {})

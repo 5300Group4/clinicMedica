@@ -24,6 +24,7 @@ def payment(request):
     return render(request, 'payment.html', {})
 
 def doctor(request):
+    
     # dictionary for initial data with
     # field names as keys
     context ={}
