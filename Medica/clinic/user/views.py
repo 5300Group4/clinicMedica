@@ -24,14 +24,14 @@ def payment(request):
         order.save()
     return render(request, 'payment.html', {})
 
-def doctor(request):
-    
+def doctor(request, city):
+
     # dictionary for initial data with
     # field names as keys
     context ={}
  
     # add the dictionary during initialization
-    context["dataset"] = Doctor.objects.all()
+    context["dataset"] = Doctor.objects.filter(location = city)
          
     return render(request, 'doctor.html', context)
 
