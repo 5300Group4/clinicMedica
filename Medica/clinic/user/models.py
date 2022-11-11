@@ -14,6 +14,29 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+<<<<<<< HEAD
+
+    # 吴志洋加，这行可以让我返回name
+    # def __str__(self):
+    #     return self.name
+
+
+class UserInfo(models.Model):
+    # 姓名、密码、年龄、email、性别、预约大夫
+    # id = models.IntegerField(primary_key=True)
+    name = models.CharField(verbose_name="name",max_length=32)
+    password = models.CharField(verbose_name="password",max_length=64)
+    age = models.IntegerField(verbose_name="age")
+    email = models.CharField(verbose_name="email",max_length=64)
+    # 性别是元组
+    gender_choice = ((1,"male"),(2,"female"),(3,"unknown"))
+    gender = models.SmallIntegerField(verbose_name="gender",choices=gender_choice)
+#     # 连级删除
+#     # 等数据库连上再说
+    appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
+
+
+=======
     location = models.CharField(max_length=20, null=True)
 
 class Location(models.Model):
@@ -21,6 +44,7 @@ class Location(models.Model):
     city = models.CharField(max_length=32)
     clinic_number = models.CharField(max_length=255)
     clinic_picture = models.CharField(max_length=255)
+<<<<<<< HEAD
 
 
 class Payment(models.Model):
@@ -32,3 +56,6 @@ class Payment(models.Model):
     # contact=models.CharField(max_length=255)
     # objects=models.Manager()
     #image = models.ImageField(upload_to='images/%Y/%m', default='images/default.png', max_length=100, verbose_name='用户头像')
+=======
+>>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
+>>>>>>> f84a69dcc1309fd1eec1a609b49a6f6d28db0fe7
