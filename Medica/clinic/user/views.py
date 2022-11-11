@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from user.models import UserInfo
 from django.core.mail import send_mail
 from django.shortcuts import redirect
+import user.models
 
 
 
@@ -63,19 +64,14 @@ def appointment(request,id):
         )
     return render(request, 'appointment.html', context)
 
-<<<<<<< HEAD
-# <<<<<<< HEAD
-=======
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
+
 # 下面都是吴志洋写的
 # homepage
 def homepage(request):
     return render(request,'homepage.html')
 
 # userSurface
-def userSurface(request):
 
-    return render(request,'userSurface.html')
 
 # 用组件编写
 
@@ -86,7 +82,7 @@ class UserForm(forms.ModelForm):
     name = forms.CharField(min_length=3,label="username")
 
     class Meta:
-        model= UserInfo()
+        model= user.models.UserInfo
         fields=["name","password","age","email","gender","appointment"]
         # 仅供测试用，到时候用上面的哪一个
         # fields=["name","password","age","email","gender"]
@@ -96,6 +92,10 @@ class UserForm(forms.ModelForm):
         super().__init__(*args,**kwargs)
         for name,field in self.fields.items():
             field.widget.attrs = {"class":"form-control","placeholder":field.label}
+
+def userSurface(request):
+
+    return render(request,'userSurface.html')
 
 
 def adminTable(request):
@@ -129,6 +129,7 @@ def adminTableAdd(request):
     # UserInfo.objects.create(name=name,password=psw,email=email,age=age)
 def adminTableEdit(request,nid):
     new_User = user.models.UserInfo.objects.filter(id=nid).filter().first()
+    # new_User = user.models.UserInfo
     if request.method=="GET":
         form = UserForm(instance=new_User)
         return render(request,'admin-tables-edit.html',{'form':form})
@@ -139,10 +140,7 @@ def adminTableEdit(request,nid):
 
 
 
-<<<<<<< HEAD
-# =======
-=======
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
+
 
 def location(request):
     # dictionary for initial data with
@@ -153,9 +151,3 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
-<<<<<<< HEAD
-# >>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
-=======
-
-
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
