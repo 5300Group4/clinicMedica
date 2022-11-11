@@ -9,20 +9,12 @@ class Appointment(models.Model):
     doctor = models.CharField(max_length=32, null=True)
     comment = models.CharField(max_length=64)
 
-class Payment(models.Model):
-    paymentid = models.CharField(max_length=32)
-    username = models.CharField(max_length=32)
-    value = models.CharField(max_length=32)
-    email = models.EmailField(max_length=32)
-    doctor = models.CharField(max_length=32)
-    # contact=models.CharField(max_length=255)
-    # objects=models.Manager()
-    #image = models.ImageField(upload_to='images/%Y/%m', default='images/default.png', max_length=100, verbose_name='用户头像')
 
 class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+<<<<<<< HEAD
     # == == == =
     location = models.CharField(max_length=20, null=True)
     # 吴志洋加，这行可以让我返回name
@@ -44,6 +36,14 @@ class Location(models.Model):
 
 
 
+=======
+    location = models.CharField(max_length=20, null=True)
+
+
+    # 吴志洋加，这行可以让我返回name
+    # def __str__(self):
+    #     return self.name
+>>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 class UserInfo(models.Model):
     # 姓名、密码、年龄、email、性别、预约大夫
     # id = models.IntegerField(primary_key=True)
@@ -59,4 +59,27 @@ class UserInfo(models.Model):
     appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
 
 
+<<<<<<< HEAD
 
+=======
+
+
+class Location(models.Model):
+    address = models.CharField(max_length=32)
+    city = models.CharField(max_length=32)
+    clinic_number = models.CharField(max_length=255)
+    clinic_picture = models.CharField(max_length=255)
+
+
+
+class Payment(models.Model):
+    date = models.DateField()
+    username = models.CharField(max_length=32)
+    email = models.EmailField(max_length=32)
+    status = models.CharField(max_length=32)
+
+    # contact=models.CharField(max_length=255)
+    # objects=models.Manager()
+    #image = models.ImageField(upload_to='images/%Y/%m', default='images/default.png', max_length=100, verbose_name='用户头像')
+
+>>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4

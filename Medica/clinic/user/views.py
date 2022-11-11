@@ -1,11 +1,9 @@
 from django.shortcuts import render, HttpResponse
-
-import user.models
-from user.models import Payment
 from django.contrib.auth import authenticate, login
 from user.models import Appointment
 from user.models import Doctor
 from user.models import Location
+from user.models import Payment
 from django.shortcuts import get_object_or_404, render
 from user.models import UserInfo
 from django.core.mail import send_mail
@@ -17,19 +15,7 @@ from django.shortcuts import redirect
 # Create your views here.
 
 
-def payment(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        email=request.POST.get('email')
-        value = request.POST.get('value')
-        doctor = request.POST.get('email')
-        order=Payment()
-        order.username=username
-        order.email=email
-        order.value=value
-        order.doctor=doctor
-        order.save()
-    return render(request, 'payment.html', {})
+
 
 def doctor(request, city):
 
@@ -61,7 +47,14 @@ def appointment(request,id):
 
         new_appointment.save()
 
+        order = Payment()
+        order.email = email
+        order.status = 'processing'
+        order.date = date
+        order.save()
+
         message = "test"
+
         send_mail(
             'Test',
             'Here is the test.',
@@ -70,7 +63,10 @@ def appointment(request,id):
         )
     return render(request, 'appointment.html', context)
 
+<<<<<<< HEAD
 # <<<<<<< HEAD
+=======
+>>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 # 下面都是吴志洋写的
 # homepage
 def homepage(request):
@@ -90,7 +86,7 @@ class UserForm(forms.ModelForm):
     name = forms.CharField(min_length=3,label="username")
 
     class Meta:
-        model= user.models.UserInfo
+        model= UserInfo()
         fields=["name","password","age","email","gender","appointment"]
         # 仅供测试用，到时候用上面的哪一个
         # fields=["name","password","age","email","gender"]
@@ -143,7 +139,10 @@ def adminTableEdit(request,nid):
 
 
 
+<<<<<<< HEAD
 # =======
+=======
+>>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 
 def location(request):
     # dictionary for initial data with
@@ -154,4 +153,9 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
+<<<<<<< HEAD
 # >>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
+=======
+
+
+>>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
