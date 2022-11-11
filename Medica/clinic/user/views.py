@@ -70,7 +70,7 @@ def appointment(request,id):
         )
     return render(request, 'appointment.html', context)
 
-<<<<<<< HEAD
+# <<<<<<< HEAD
 # 下面都是吴志洋写的
 # homepage
 def homepage(request):
@@ -107,8 +107,8 @@ def adminTable(request):
     return render(request, 'admin-tables.html', {'user_list':user_list})
 
 
-def adminTableDel(request):
-    nid = request.GET.get('nid')
+def adminTableDel(request,nid):
+    # nid = request.GET.get('nid')
     UserInfo.objects.filter(id=nid).delete()
     return redirect("http://127.0.0.1:8000/ad/info/")
 
@@ -143,7 +143,7 @@ def adminTableEdit(request,nid):
 
 
 
-=======
+# =======
 
 def location(request):
     # dictionary for initial data with
@@ -154,4 +154,4 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
->>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
+# >>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
