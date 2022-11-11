@@ -1,28 +1,16 @@
 from django.shortcuts import render, HttpResponse
-from user.models import Payment
 from django.contrib.auth import authenticate, login
 from user.models import Appointment
 from user.models import Doctor
 from user.models import Location
+from user.models import Payment
 from django.shortcuts import get_object_or_404, render
 
 # Create your views here.
 from django.core.mail import send_mail
 
 
-def payment(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        email=request.POST.get('email')
-        value = request.POST.get('value')
-        doctor = request.POST.get('email')
-        order=Payment()
-        order.username=username
-        order.email=email
-        order.value=value
-        order.doctor=doctor
-        order.save()
-    return render(request, 'payment.html', {})
+
 
 def doctor(request, city):
 
@@ -54,7 +42,14 @@ def appointment(request,id):
 
         new_appointment.save()
 
+        order = Payment()
+        order.email = email
+        order.status = 'processing'
+        order.date = date
+        order.save()
+
         message = "test"
+
         send_mail(
             'Test',
             'Here is the test.',
@@ -73,3 +68,5 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
+
+
