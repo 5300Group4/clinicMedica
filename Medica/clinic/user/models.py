@@ -23,3 +23,24 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+
+    # 吴志洋加，这行可以让我返回name
+    # def __str__(self):
+    #     return self.name
+
+
+class UserInfo(models.Model):
+    # 姓名、密码、年龄、email、性别、预约大夫
+    # id = models.IntegerField(primary_key=True)
+    name = models.CharField(verbose_name="name",max_length=32)
+    password = models.CharField(verbose_name="password",max_length=64)
+    age = models.IntegerField(verbose_name="age")
+    email = models.CharField(verbose_name="email",max_length=64)
+    # 性别是元组
+    gender_choice = ((1,"male"),(2,"female"),(3,"unknown"))
+    gender = models.SmallIntegerField(verbose_name="gender",choices=gender_choice)
+#     # 连级删除
+#     # 等数据库连上再说
+    appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
+
+
