@@ -82,7 +82,7 @@ class UserForm(forms.ModelForm):
     name = forms.CharField(min_length=3,label="username")
 
     class Meta:
-        model= user.models.UserInfo
+        model= UserInfo()
         fields=["name","password","age","email","gender","appointment"]
         # 仅供测试用，到时候用上面的哪一个
         # fields=["name","password","age","email","gender"]

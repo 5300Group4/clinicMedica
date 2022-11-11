@@ -14,13 +14,12 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
-<<<<<<< HEAD
+    location = models.CharField(max_length=20, null=True)
+
 
     # 吴志洋加，这行可以让我返回name
     # def __str__(self):
     #     return self.name
-
-
 class UserInfo(models.Model):
     # 姓名、密码、年龄、email、性别、预约大夫
     # id = models.IntegerField(primary_key=True)
@@ -36,15 +35,14 @@ class UserInfo(models.Model):
     appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
 
 
-=======
-    location = models.CharField(max_length=20, null=True)
+
 
 class Location(models.Model):
     address = models.CharField(max_length=32)
     city = models.CharField(max_length=32)
     clinic_number = models.CharField(max_length=255)
     clinic_picture = models.CharField(max_length=255)
-<<<<<<< HEAD
+
 
 
 class Payment(models.Model):
@@ -56,6 +54,4 @@ class Payment(models.Model):
     # contact=models.CharField(max_length=255)
     # objects=models.Manager()
     #image = models.ImageField(upload_to='images/%Y/%m', default='images/default.png', max_length=100, verbose_name='用户头像')
-=======
->>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
->>>>>>> f84a69dcc1309fd1eec1a609b49a6f6d28db0fe7
+
