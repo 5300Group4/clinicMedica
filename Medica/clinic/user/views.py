@@ -5,6 +5,7 @@ from user.models import Payment
 from django.contrib.auth import authenticate, login
 from user.models import Appointment
 from user.models import Doctor
+from user.models import Location
 from django.shortcuts import get_object_or_404, render
 from user.models import UserInfo
 from django.core.mail import send_mail
@@ -30,18 +31,21 @@ def payment(request):
         order.save()
     return render(request, 'payment.html', {})
 
-def doctor(request):
+def doctor(request, city):
+
     # dictionary for initial data with
     # field names as keys
     context ={}
  
     # add the dictionary during initialization
-    context["dataset"] = Doctor.objects.all()
+    context["dataset"] = Doctor.objects.filter(location = city)
          
     return render(request, 'doctor.html', context)
 
 def appointment(request,id):
     obj = get_object_or_404(Doctor, id = id)
+    context ={}
+    context["doctor"] = obj.name
     if request.method == 'POST':   # 判断采用的是何种请求
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
@@ -64,8 +68,9 @@ def appointment(request,id):
             '912675127@qq.com',
             [email],
         )
-    return render(request, 'appointment.html', {})
+    return render(request, 'appointment.html', context)
 
+<<<<<<< HEAD
 # 下面都是吴志洋写的
 # homepage
 def homepage(request):
@@ -138,3 +143,15 @@ def adminTableEdit(request,nid):
 
 
 
+=======
+
+def location(request):
+    # dictionary for initial data with
+    # field names as keys
+    context = {}
+
+    # add the dictionary during initialization
+    context["dataset"] = Location.objects.all()
+
+    return render(request, 'location.html', context)
+>>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec

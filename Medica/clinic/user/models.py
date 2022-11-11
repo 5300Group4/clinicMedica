@@ -23,6 +23,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+<<<<<<< HEAD
 
     # 吴志洋加，这行可以让我返回name
     # def __str__(self):
@@ -44,3 +45,12 @@ class UserInfo(models.Model):
     appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
 
 
+=======
+    location = models.CharField(max_length=20, null=True)
+
+class Location(models.Model):
+    address = models.CharField(max_length=32)
+    city = models.CharField(max_length=32)
+    clinic_number = models.CharField(max_length=255)
+    clinic_picture = models.CharField(max_length=255)
+>>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
