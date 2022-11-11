@@ -63,10 +63,6 @@ def appointment(request,id):
         )
     return render(request, 'appointment.html', context)
 
-<<<<<<< HEAD
-# <<<<<<< HEAD
-=======
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 # 下面都是吴志洋写的
 # homepage
 def homepage(request):
@@ -139,10 +135,6 @@ def adminTableEdit(request,nid):
 
 
 
-<<<<<<< HEAD
-# =======
-=======
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 
 def location(request):
     # dictionary for initial data with
@@ -153,9 +145,5 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
-<<<<<<< HEAD
-# >>>>>>> 2b9a17a0d207bc5c3aeac28de2f23f9f8a37f5ec
-=======
 
 
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
