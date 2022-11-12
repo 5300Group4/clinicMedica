@@ -67,7 +67,7 @@ def appointment(request,id):
             '912675127@qq.com',
             [email],
         )
-        return render(request, 'home.html', data_checkout)
+        # return render(request, 'home.html', data_checkout)
 
     return render(request, 'appointment.html', context)
 
