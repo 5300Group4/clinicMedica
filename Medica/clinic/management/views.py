@@ -110,8 +110,8 @@ def location_edit(request, address):
         # update the new info
         obj.address = request.POST['address']
         obj.city = request.POST['city']
-        obj.number = request.POST['number']
-        obj.picture = request.POST['picture']
+        obj.clinic_number = request.POST['number']
+        obj.clinic_picture = request.POST['picture']
         # save
         obj.save()
         # messages.success(request, 'Successfully!')
