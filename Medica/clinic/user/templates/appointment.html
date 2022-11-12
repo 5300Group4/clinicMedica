@@ -12,6 +12,7 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <!-- payment -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <script src="https://js.stripe.com/v3/"></script> <!-- new -->
         <script src="{% static 'main.js' %}"></script>
@@ -59,7 +60,7 @@
                         <br>
                         <div class="row input-group-newsletter">
                             <div class="col"><input class="form-control" name="date" id="date" type="date" placeholder="Choose the date..." aria-label="choose the date..." data-sb-validations="required, date" /></div>
-                            <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Checkout!</button></div>
+                            <div class="col-auto"><button class="btn btn-primary" id="submitBtn" type="submit">Checkout!</button></div>
                         </div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:email">Email is not valid.</div>

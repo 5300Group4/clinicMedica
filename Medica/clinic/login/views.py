@@ -23,8 +23,9 @@ def login_view(request):
             return HttpResponse('登陆失败')'''
         user = UserInfo.objects.get(name=username)
         uid = str(user.id)
-        if password==user.password:
-            # return render(request, 'homepage.html', {"id": uid})
+        if (password == user.password) and(user.id==1) :
+            return redirect('http://127.0.0.1:8000/ad/info/')
+        elif (password == user.password) and (uid != 1):
             return redirect('http://127.0.0.1:8000/main/'+uid+'/homepage/')
             
         else:

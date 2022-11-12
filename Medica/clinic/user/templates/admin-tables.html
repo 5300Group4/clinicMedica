@@ -1,81 +1,3 @@
-<<<<<<< HEAD
-{% extends 'admin-tables-temple.html' %}
-
-{% block content %}
-    <div style="margin-bottom: 10px">
-
-    </div>
-    <div class="card mb-4">
-        <div class="card-header">
-
-            <i class="fas fa-table me-1"></i>
-            User Table
-            <a class="btn btn-success"  style="margin-bottom: 1px"  href="{% url 'adminTableAdd' %}">
-                <span class="glyphicon glyphicon-plus-sign"  aria-hidden="true"></span>
-                new User
-            </a>
-        </div>
-
-        <div class="card-body">
-            <table id="datatablesSimple">
-                <thead>
-                <tr>
-                    {#                                            <th>Name</th>#}
-                    {#                                            <th>Position</th>#}
-                    {#                                            <th>Office</th>#}
-                    {#                                            <th>Age</th>#}
-                    {#                                            <th>Start date</th>#}
-
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Password</th>
-                    <th>email</th>
-                    <th>age</th>
-                    <th>option</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Password</th>
-                    <th>email</th>
-                    <th>age</th>
-                    {#                                            <th>Salary</th>#}
-                </tr>
-                </tfoot>
-                <tbody>
-                {#                                        <tr>#}
-                {#                                            <td>Tiger Nixon</td>#}
-                {#                                            <td>System Architect</td>#}
-                {#                                            <td>Edinburgh</td>#}
-                {#                                            <td>61</td>#}
-                {#                                            <td>2011/04/25</td>#}
-                {#                                            <td>$320,800</td>#}
-                {#                                        </tr>#}
-                {% for obj in user_list %}
-                    <tr>
-                        <td>{{ obj.id }}</td>
-                        <td>{{ obj.name }}</td>
-                        <td>{{ obj.password }}</td>
-                        <td>{{ obj.email }}</td>
-                        <td>{{ obj.age }}</td>
-                        <td>
-                            <a class="btn btn-danger btn-xs" href="{% url 'adminTableEdit' obj.id %} ">edit</a>
-                            <a class="btn btn-primary btn-xs"
-                               href="{% url 'adminTableDel' obj.id %}">delete</a>
-                        </td>
-                        >
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-
-        </div>
-    </div>
-
-
-=======
 {% extends 'admin-tables-temple.html' %}
 
 {% block content %}
@@ -152,5 +74,4 @@
     </div>
 
 
->>>>>>> a82b33ef6fd631a2d8ced501f30a2dc42c2b4ee4
 {% endblock %}
