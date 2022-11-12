@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from user.models import Appointment,Payment
+from user.models import Appointment
+from user.models import Location
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -85,3 +86,70 @@ def appointment_delete(request,ename):
         return redirect("http://127.0.0.1:8000/appointment_mag/")
 
     return render(request, 'appointment_delete.html', context)
+
+
+def location_mag(request):
+    context = {}
+
+    # add the dictionary during initialization
+    context["dataset"] = Location.objects.all()
+    return render(request, 'location_mag.html', context)
+
+
+def location_edit(request, address):
+    context = {}
+    # add the dictionary during initialization
+    context["location"] = Location.objects.filter(address=address)
+
+    if request.method == 'POST':  # 判断采用的是何种请求
+        obj = get_object_or_404(Location, address=address)
+        # fetch the object related to passed id
+        # request.POST[]或request.POST.get()获取数据
+
+        # update the new info
+        obj.address = request.POST['address']
+        obj.city = request.POST['city']
+        obj.number = request.POST['number']
+        obj.picture = request.POST['picture']
+        # save
+        obj.save()
+        # messages.success(request, 'Successfully!')
+        return redirect("http://127.0.0.1:8000/location_mag/")
+
+    return render(request, 'location_edit.html', context)
+
+def location_delete(request,id):
+    obj = get_object_or_404(Location, id=id)
+    context ={}
+    context["location"] = Location.objects.filter(id=id)
+
+    if request.method == 'POST':   # 判断采用的是何种请求
+        obj.delete()
+        return redirect("http://127.0.0.1:8000/location_mag/")
+
+    return render(request, 'location_delete.html', context)
+
+def location_add(request):
+    context = {}
+    if request.method == 'POST':  # 判断采用的是何种请求
+        # fetch the object related to passed id
+        # request.POST[]或request.POST.get()获取数据
+        address = request.POST['address']
+        city = request.POST['city']
+        clinic_number = request.POST['number']
+        clinic_picture = request.POST['picture']
+
+
+        # 存储user_appointment数据 - Qi
+        new_location = Location()
+        new_location.address = address
+        new_location.city = city
+        new_location.clinic_number = clinic_number
+        new_location.clinic_picture = clinic_picture
+
+        new_location.save()
+
+
+        return redirect("http://127.0.0.1:8000/location_mag/")
+
+    return render(request, 'location_add.html', context)
