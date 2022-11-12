@@ -56,6 +56,7 @@ def appointment(request,id):
         #payment存储 - Qi
         order = Payment()
         order.email = email
+        order.username=name
         order.status = 'processing'
         order.pdate = date
         order.save()

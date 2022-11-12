@@ -49,8 +49,7 @@
                     <td>{{ obj.status }}</td>
 
                     <td>
-                        <a class="btn btn-danger btn-xs" type="submit"
-                            href="{% url 'payment_edit' obj.username %}">edit</a>
+                        <a class="btn btn-danger btn-xs" type="submit" href="{% url 'payment_edit' obj.username %}">edit</a>
                         <a class="btn btn-primary btn-xs" href="{% url 'payment_delete' obj.username %}">delete</a>
                     </td>
                 </tr>

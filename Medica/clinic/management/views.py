@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from user.models import Appointment
 from user.models import Location
+from user.models import Payment
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -25,7 +26,7 @@ def payment_edit(request, ename):
         # update the new info
         obj.username = request.POST['username']
         obj.email = request.POST['email']
-        obj.date = request.POST['date']
+        obj.pdate = request.POST['date']
         obj.status = request.POST['status']
         # save
         obj.save()
