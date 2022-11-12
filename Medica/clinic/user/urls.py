@@ -7,7 +7,13 @@ urlpatterns = [
     # 主界面
     path('main/',views.homepage, name ='homepage'),
     # user自己的更新界面
-    path('update/',views.userSurface,name = 'userSurface'),
+
+    path('main/<int:nid>/update/', views.personalEdit, name='personalEdit'),
+    # 登录后的界面
+
+    path('main/<int:nid>/homepage/', views.homepageAfterLoginIn,
+         name="homepageAfterLoginIn"),
+
     # 这些是admin的操作
     path('ad/info/',views.adminTable,name = 'adminTable'),
     path('ad/<int:nid>/delete/',views.adminTableDel,name='adminTableDel'),

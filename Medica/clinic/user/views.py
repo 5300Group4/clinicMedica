@@ -68,6 +68,27 @@ def appointment(request,id):
 def homepage(request):
     return render(request,'homepage.html')
 
+# 登录后的homepage()
+
+
+def homepageAfterLoginIn(request, nid):
+    user_name = UserInfo.objects.filter(id=nid).filter().first()
+    return render(request, 'homepageAfterLoginIn.html', {'user_name': user_name, 'nid': nid})
+
+
+def personalEdit(request, nid):
+    sNid = str(nid)
+    new_User = user.models.UserInfo.objects.filter(id=nid).filter().first()
+    # new_User = user.models.UserInfo
+    if request.method == "GET":
+        form = UserForm(instance=new_User)
+        return render(request, 'userSurface.html', {'form': form})
+    form = UserForm(data=request.POST, instance=new_User)
+    if form.is_valid():
+        form.save()
+        return redirect('http://127.0.0.1:8000/main/'+sNid+'/homepage/')
+
+
 # userSurface
 def userSurface(request):
 

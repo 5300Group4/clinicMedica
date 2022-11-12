@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect
 from user.models import UserInfo
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 from django.contrib.auth import login as auth_login
 # Create your views here.
 
@@ -22,8 +22,11 @@ def login_view(request):
             # 返回登录失败信息
             return HttpResponse('登陆失败')'''
         user = UserInfo.objects.get(name=username)
+        uid = str(user.id)
         if password==user.password:
-            return HttpResponseRedirect('/main')
+            # return render(request, 'homepage.html', {"id": uid})
+            return redirect('http://127.0.0.1:8000/main/'+uid+'/homepage/')
+            
         else:
             return HttpResponse('登陆失败')
 
