@@ -1,0 +1,11 @@
+<form method="post">
+    {% csrf_token %}
+    {% for data in dataset %}
+    <input type="text" name="username" placeholder="Username" required="required" />
+    <input type="email" name="email" placeholder="Email" required="required" />
+    <input type="date" name="date" placeholder="Date" required="required" />
+    <input type="text" name="status" placeholder="Status" required="required" />
+    {% endfor %}
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Edit</button>
+</form>
