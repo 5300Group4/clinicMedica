@@ -10,7 +10,7 @@ urlpatterns = [
     path('update/',views.userSurface,name = 'userSurface'),
     # 这些是admin的操作
     path('ad/info/',views.adminTable,name = 'adminTable'),
-    path('ad/info/delete/',views.adminTableDel,name='adminTableDel'),
+    path('ad/<int:nid>/delete/',views.adminTableDel,name='adminTableDel'),
     path('ad/info/add/',views.adminTableAdd,name='adminTableAdd'),
     path('ad/<int:nid>/edit/',views.adminTableEdit,name='adminTableEdit'),
     path('location/', views.location, name='location'),

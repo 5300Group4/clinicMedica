@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from django.contrib.auth import authenticate, login
+import user.models
 from user.models import Appointment
 from user.models import Doctor
 from user.models import Location
@@ -58,7 +58,7 @@ def appointment(request,id):
         order = Payment()
         order.email = email
         order.status = 'processing'
-        order.date = date
+        order.pdate = date
         order.save()
 
         send_mail(
@@ -90,7 +90,7 @@ class UserForm(forms.ModelForm):
     name = forms.CharField(min_length=3,label="username")
 
     class Meta:
-        model= UserInfo()
+        model= user.models.UserInfo
         fields=["name","password","age","email","gender","appointment"]
         # 仅供测试用，到时候用上面的哪一个
         # fields=["name","password","age","email","gender"]
@@ -107,8 +107,8 @@ def adminTable(request):
     return render(request, 'admin-tables.html', {'user_list':user_list})
 
 
-def adminTableDel(request):
-    nid = request.GET.get('nid')
+def adminTableDel(request,nid):
+    # nid = request.GET.get('nid')
     UserInfo.objects.filter(id=nid).delete()
     return redirect("http://127.0.0.1:8000/ad/info/")
 

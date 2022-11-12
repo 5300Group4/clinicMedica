@@ -4,11 +4,14 @@ from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.shortcuts import redirect
 
-
+from user.models import Payment
 # Create your views here.
 
 def payment(request):
-    return render(request, 'payment.html', {})
+    payment_list = Payment.objects.all()
+    return render(request, 'payment_mag.html', {'payment_list': payment_list})
+    
+
 
 def appointment_mag(request):
     context ={}
