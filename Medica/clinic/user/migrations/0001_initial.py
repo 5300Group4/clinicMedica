@@ -49,8 +49,9 @@ class Migration(migrations.Migration):
             name='Payment',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pdate', models.DateField(null=True)),
+                ('pdate', models.DateField()),
                 ('username', models.CharField(max_length=32)),
+                ('date', models.DateField(null=True)),
                 ('email', models.EmailField(max_length=32)),
                 ('status', models.CharField(max_length=32)),
             ],
