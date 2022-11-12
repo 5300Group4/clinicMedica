@@ -16,12 +16,16 @@ class Doctor(models.Model):
     name = models.CharField(max_length=32)
     introduction = models.CharField(max_length=255)
     picture = models.CharField(max_length=255)
+
     location = models.CharField(max_length=20, null=True)
-
-
     # 吴志洋加，这行可以让我返回name
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
+
+
+
+
+
 class UserInfo(models.Model):
     # 姓名、密码、年龄、email、性别、预约大夫
     # id = models.IntegerField(primary_key=True)
@@ -35,7 +39,10 @@ class UserInfo(models.Model):
         verbose_name="gender", choices=gender_choice, null="true")
 #     # 连级删除
 #     # 等数据库连上再说
-    appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE)
+    appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
+    def __str__(self):
+        return self.name
+
 
 
 
