@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponse
-from django.contrib.auth import authenticate, login
-from login.models import User
+from django.shortcuts import render, HttpResponse,redirect
+from user.models import UserInfo
+from django.http import HttpResponseRedirect
+from django.contrib.auth import login as auth_login
 # Create your views here.
 
 
@@ -20,9 +21,12 @@ def login_view(request):
         else:
             # 返回登录失败信息
             return HttpResponse('登陆失败')'''
-        user=User.objects.get(username=username)
+        user = UserInfo.objects.get(name=username)
+        uid = str(user.id)
         if password==user.password:
-            return HttpResponse('登陆成功')
+            # return render(request, 'homepage.html', {"id": uid})
+            return redirect('http://127.0.0.1:8000/main/'+uid+'/homepage/')
+            
         else:
             return HttpResponse('登陆失败')
 
@@ -33,9 +37,15 @@ def register(request):
         username = request.POST.get('username')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        user = User()
-        user.username = username
+        user = UserInfo()
+        user.name = username
         user.email = email
         user.password = password
         user.save()
+        logintest = UserInfo.objects.get(name=username)
+        if password == logintest.password:
+            return HttpResponseRedirect('/main')
+        else:
+            return HttpResponse('注册失败')
+
     return render(request,'register.html')

@@ -8,6 +8,8 @@ class Appointment(models.Model):
     date = models.DateField()
     doctor = models.CharField(max_length=32, null=True)
     comment = models.CharField(max_length=64)
+    location = models.CharField(max_length=20, null=True)
+    name = models.CharField(max_length=32, null=True)
 
 
 class Doctor(models.Model):
@@ -29,11 +31,12 @@ class UserInfo(models.Model):
     # id = models.IntegerField(primary_key=True)
     name = models.CharField(verbose_name="name",max_length=32)
     password = models.CharField(verbose_name="password",max_length=64)
-    age = models.IntegerField(verbose_name="age")
+    age = models.IntegerField(verbose_name="age",null="true")
     email = models.CharField(verbose_name="email",max_length=64)
     # 性别是元组
     gender_choice = ((1,"male"),(2,"female"),(3,"unknown"))
-    gender = models.SmallIntegerField(verbose_name="gender",choices=gender_choice)
+    gender = models.SmallIntegerField(
+        verbose_name="gender", choices=gender_choice, null="true")
 #     # 连级删除
 #     # 等数据库连上再说
     appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
@@ -53,8 +56,9 @@ class Location(models.Model):
 
 
 class Payment(models.Model):
-    date = models.DateField()
+    pdate = models.DateField(null = True)
     username = models.CharField(max_length=32)
+    date = models.DateField(null = True)
     email = models.EmailField(max_length=32)
     status = models.CharField(max_length=32)
 

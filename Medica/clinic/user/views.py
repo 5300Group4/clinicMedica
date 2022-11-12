@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse
-from django.contrib.auth import authenticate, login
+import user.models
 from user.models import Appointment
 from user.models import Doctor
 from user.models import Location
@@ -32,29 +32,35 @@ def doctor(request, city):
 def appointment(request,id):
     obj = get_object_or_404(Doctor, id = id)
     context ={}
-    context["doctor"] = obj.name
+    data_checkout = {}
+    context["doctor"] = obj
     if request.method == 'POST':   # 判断采用的是何种请求
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
+        name = request.POST['name']
         email = request.POST['email']
-        phone_number = request.POST['phone_number']
         date = request.POST['date']
+        comment = request.POST['comment']
 
+        data_checkout["email"] = email
+
+        #存储user_appointment数据 - Qi
         new_appointment = Appointment()
+        new_appointment.name =  name
+        new_appointment.location = obj.location
         new_appointment.email =  email
-        new_appointment.phone_number = phone_number
+        new_appointment.comment = comment
         new_appointment.date = date
         new_appointment.doctor = obj.name
 
         new_appointment.save()
 
+        #payment存储 - Qi
         order = Payment()
         order.email = email
         order.status = 'processing'
-        order.date = date
+        order.pdate = date
         order.save()
-
-        message = "test"
 
         send_mail(
             'Test',
@@ -62,6 +68,8 @@ def appointment(request,id):
             '912675127@qq.com',
             [email],
         )
+        return render(request, 'home.html', data_checkout)
+
     return render(request, 'appointment.html', context)
 
 
@@ -69,8 +77,32 @@ def appointment(request,id):
 # homepage
 def homepage(request):
     return render(request,'homepage.html')
-def redir(request):
-    return redirect('http://127.0.0.1:8000/main/')
+
+# 登录后的homepage()
+
+
+def homepageAfterLoginIn(request, nid):
+    user_name = UserInfo.objects.filter(id=nid).filter().first()
+    return render(request, 'homepageAfterLoginIn.html', {'user_name': user_name, 'nid': nid})
+
+
+def personalEdit(request, nid):
+    sNid = str(nid)
+    new_User = user.models.UserInfo.objects.filter(id=nid).filter().first()
+    # new_User = user.models.UserInfo
+    if request.method == "GET":
+        form = UserForm(instance=new_User)
+        return render(request, 'userSurface.html', {'form': form})
+    form = UserForm(data=request.POST, instance=new_User)
+    if form.is_valid():
+        form.save()
+        return redirect('http://127.0.0.1:8000/main/'+sNid+'/homepage/')
+
+
+# userSurface
+def userSurface(request):
+
+    return render(request,'userSurface.html')
 
 # 用组件编写
 
@@ -167,3 +199,5 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
+
+

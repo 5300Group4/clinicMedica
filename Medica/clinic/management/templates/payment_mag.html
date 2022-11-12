@@ -1,0 +1,67 @@
+{% extends 'admin-tables-temple.html' %}
+
+{% block content %}
+<div style="margin-bottom: 10px">
+
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+
+        <i class="fas fa-table me-1"></i>
+        User Table
+        <a class="btn btn-success" style="margin-bottom: 1px" href="http://127.0.0.1:8000/ad/info/add/">
+            <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            new User
+        </a>
+    </div>
+
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    {# <th>Name</th>#}
+                    {# <th>Position</th>#}
+                    {# <th>Office</th>#}
+                    {# <th>Age</th>#}
+                    {# <th>Start date</th>#}
+
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>date</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td>Id</td>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>date</th>
+                    <th>status</th>
+                    {# <th>Salary</th>#}
+                </tr>
+            </tfoot>
+            <tbody>
+
+                {% for obj in payment_list %}
+                <tr>
+                    <td>{{ obj.id }}</td>
+                    <td>{{ obj.username }}</td>
+                    <td>{{ obj.email }}</td>
+                    <td>{{ obj.pdate }}</td>
+                    <td>{{ obj.status }}</td>
+                    <td>
+                        <a class="btn btn-danger btn-xs" href="{% url 'adminTableEdit' obj.id %} ">edit</a>
+                        <a class="btn btn-primary btn-xs" href="{% url 'adminTableDel' obj.id %}">delete</a>
+                    </td>
+                    >
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -2,7 +2,7 @@ from django.conf import settings  # new
 from django.http.response import JsonResponse  # new
 from django.views.decorators.csrf import csrf_exempt  # new
 from django.views.generic.base import TemplateView
-from payment.models import Payment
+# from payment.models import Payment
 import stripe
 
 # Create your views here.
@@ -62,16 +62,16 @@ class CancelledView(TemplateView):
     template_name = 'cancelled.html'
 
 
-def payment(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        value = request.POST.get('value')
-        doctor = request.POST.get('email')
-        order = Payment()
-        order.username = username
-        order.email = email
-        order.value = value
-        order.doctor = doctor
-        order.save()
-    return render(request, 'payment.html', {})
+# def payment(request):
+#     if request.method == "POST":
+#         username = request.POST.get('username')
+#         email = request.POST.get('email')
+#         value = request.POST.get('value')
+#         doctor = request.POST.get('email')
+#         order = Payment()
+#         order.username = username
+#         order.email = email
+#         order.value = value
+#         order.doctor = doctor
+#         order.save()
+#     return render(request, 'payment.html', {})
