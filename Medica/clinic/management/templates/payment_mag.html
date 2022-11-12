@@ -1,6 +1,7 @@
 {% extends 'admin-tables-temple.html' %}
 
 {% block content %}
+
 <div style="margin-bottom: 10px">
 
 </div>
@@ -15,52 +16,51 @@
         </a>
     </div>
 
+    <!-- <form method="post" id="app_mag_gorm">
+            {% csrf_token %} -->
     <div class="card-body">
         <table id="datatablesSimple">
             <thead>
                 <tr>
-                    {# <th>Name</th>#}
-                    {# <th>Position</th>#}
-                    {# <th>Office</th>#}
-                    {# <th>Age</th>#}
-                    {# <th>Start date</th>#}
-
+                    <th>ID</th>
                     <th>Name</th>
-                    <th>email</th>
-                    <th>date</th>
-                    <th>status</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Option</th>
+
                 </tr>
             </thead>
             <tfoot>
                 <tr>
-                    <td>Id</td>
+                    <th>ID</th>
                     <th>Name</th>
-                    <th>email</th>
-                    <th>date</th>
-                    <th>status</th>
-                    {# <th>Salary</th>#}
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Option</th>
+
                 </tr>
             </tfoot>
             <tbody>
-
-                {% for obj in payment_list %}
+                {% for obj in payment %}
                 <tr>
                     <td>{{ obj.id }}</td>
                     <td>{{ obj.username }}</td>
                     <td>{{ obj.email }}</td>
-                    <td>{{ obj.pdate }}</td>
+                    <td>{{ obj.pdate|date:'Y-m-d'}}</td>
                     <td>{{ obj.status }}</td>
+
                     <td>
-                        <a class="btn btn-danger btn-xs" href="{% url 'adminTableEdit' obj.id %} ">edit</a>
-                        <a class="btn btn-primary btn-xs" href="{% url 'adminTableDel' obj.id %}">delete</a>
+                        <a class="btn btn-danger btn-xs" type="submit" href="{% url 'payment_edit' obj.username %}">edit</a>
+                        <a class="btn btn-primary btn-xs" href="{% url 'payment_delete' obj.username %}">delete</a>
                     </td>
-                    >
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-
     </div>
+    <!-- </form> -->
 </div>
 
 

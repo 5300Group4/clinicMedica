@@ -8,9 +8,6 @@ from django.shortcuts import get_object_or_404, render
 from user.models import UserInfo
 from django.core.mail import send_mail
 from django.shortcuts import redirect
-import user.models
-
-
 
 
 # Create your views here.
@@ -59,17 +56,18 @@ def appointment(request,id):
         #payment存储 - Qi
         order = Payment()
         order.email = email
+        order.username=name
         order.status = 'processing'
         order.pdate = date
         order.save()
 
         send_mail(
-            'Test',
-            'Here is the test.',
-            '912675127@qq.com',
+            'Appointment Notification',
+            'Dear Patient, this email is to inform you that you have successfully booked an offline consultation service, please arrive at the clinic at the appointment time. Thank you for your support.',
+            'Medica Center', #Email Send Title
             [email],
         )
-        return render(request, 'home.html', data_checkout)
+        # return render(request, 'home.html', data_checkout)
 
     return render(request, 'appointment.html', context)
 
@@ -203,5 +201,3 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
-
-
