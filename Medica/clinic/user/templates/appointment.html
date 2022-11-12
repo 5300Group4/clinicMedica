@@ -23,7 +23,7 @@
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
                     <h2 class="fst-italic lh-1 mb-4">Schedule Your Appointment</h2>
-                    <h2 class="fst-italic lh-1 mb-4">With Dr. {{doctor}}</h2>
+                    <h2 class="fst-italic lh-1 mb-4">With Dr. {{doctor.name}}</h2>
                     <p class="mb-4">We will notify the doctor to reserve time for you at the time of your choice</p>
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
@@ -36,16 +36,24 @@
                         <!-- Email address input-->
                         {% csrf_token %}
                         <div class="row input-group-newsletter">
-                            <div class="col"><input class="form-control" name="email" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
+                            <div class="col"><input class="form-control" name="name" id="name" type="name" placeholder="Enter the patient name..." aria-label="Enter the patient name..." data-sb-validations="required, name" /></div>
                         </div>
                         <br>
                         <div class="row input-group-newsletter">
-                            <div class="col"><input class="form-control" name="phone_number" id="phone_number" type="text" placeholder="Enter your phone number..." aria-label="Enter your phone number..." data-sb-validations="required,phone_number" /></div>
+                            <div class="col"><input class="form-control" name="email" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required, email" /></div>
+                        </div>
+                        <br>
+                        <!-- <div class="row input-group-newsletter">
+                            <div class="col"><input class="form-control" name="phone_number" id="phone_number" type="text" placeholder="Enter your phone number..." aria-label="Enter your phone number..." data-sb-validations="required, phone_number" /></div>
+                        </div>
+                        <br> -->
+                        <div class="row input-group-newsletter">
+                            <div class="col"><input class="form-control" name="comment" id="comment" type="text" placeholder="Enter the description..." aria-label="Enter the description..." data-sb-validations="required, comment" /></div>
                         </div>
                         <br>
                         <div class="row input-group-newsletter">
-                            <div class="col"><input class="form-control" name="date" id="date" type="date" placeholder="Choose the date..." aria-label="choose the date..." data-sb-validations="required,date" /></div>
-                            <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Notify Me!</button></div>
+                            <div class="col"><input class="form-control" name="date" id="date" type="date" placeholder="Choose the date..." aria-label="choose the date..." data-sb-validations="required, date" /></div>
+                            <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Checkout!</button></div>
                         </div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:email">Email is not valid.</div>

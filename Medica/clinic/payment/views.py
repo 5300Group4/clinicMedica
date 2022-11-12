@@ -2,7 +2,7 @@ from django.conf import settings  # new
 from django.http.response import JsonResponse  # new
 from django.views.decorators.csrf import csrf_exempt  # new
 from django.views.generic.base import TemplateView
-from payment.models import Payment
+# from payment.models import Payment
 import stripe
 
 # Create your views here.

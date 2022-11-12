@@ -31,29 +31,35 @@ def doctor(request, city):
 def appointment(request,id):
     obj = get_object_or_404(Doctor, id = id)
     context ={}
-    context["doctor"] = obj.name
+    data_checkout = {}
+    context["doctor"] = obj
     if request.method == 'POST':   # 判断采用的是何种请求
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
+        name = request.POST['name']
         email = request.POST['email']
-        phone_number = request.POST['phone_number']
         date = request.POST['date']
+        comment = request.POST['comment']
 
+        data_checkout["email"] = email
+
+        #存储user_appointment数据 - Qi
         new_appointment = Appointment()
+        new_appointment.name =  name
+        new_appointment.location = obj.location
         new_appointment.email =  email
-        new_appointment.phone_number = phone_number
+        new_appointment.comment = comment
         new_appointment.date = date
         new_appointment.doctor = obj.name
 
         new_appointment.save()
 
+        #payment存储 - Qi
         order = Payment()
         order.email = email
         order.status = 'processing'
         order.date = date
         order.save()
-
-        message = "test"
 
         send_mail(
             'Test',
@@ -61,6 +67,8 @@ def appointment(request,id):
             '912675127@qq.com',
             [email],
         )
+        return render(request, 'home.html', data_checkout)
+
     return render(request, 'appointment.html', context)
 
 # 下面都是吴志洋写的
@@ -132,9 +140,6 @@ def adminTableEdit(request,nid):
     if form.is_valid():
         form.save()
         return redirect('http://127.0.0.1:8000/ad/info/')
-
-
-
 
 def location(request):
     # dictionary for initial data with

@@ -8,6 +8,8 @@ class Appointment(models.Model):
     date = models.DateField()
     doctor = models.CharField(max_length=32, null=True)
     comment = models.CharField(max_length=64)
+    location = models.CharField(max_length=20, null=True)
+    name = models.CharField(max_length=32, null=True)
 
 
 class Doctor(models.Model):
@@ -46,10 +48,10 @@ class Location(models.Model):
 
 
 class Payment(models.Model):
-    date = models.DateField()
+    date = models.DateField(null = True)
     username = models.CharField(max_length=32)
     email = models.EmailField(max_length=32)
-    status = models.CharField(max_length=32)
+    status = models.CharField(max_length=32, null = True)
 
     # contact=models.CharField(max_length=255)
     # objects=models.Manager()
