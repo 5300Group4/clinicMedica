@@ -37,6 +37,8 @@ class UserInfo(models.Model):
 #     # 连级删除
 #     # 等数据库连上再说
     appointment = models.ForeignKey(verbose_name="appointment",to="Doctor",to_field="id",on_delete=models.CASCADE,default="none")
+    def __str__(self):
+        return self.name
 
 
 

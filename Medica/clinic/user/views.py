@@ -69,9 +69,8 @@ def appointment(request,id):
 # homepage
 def homepage(request):
     return render(request,'homepage.html')
-
-# userSurface
-
+def redir(request):
+    return redirect('http://127.0.0.1:8000/main/')
 
 # 用组件编写
 
@@ -93,12 +92,33 @@ class UserForm(forms.ModelForm):
         for name,field in self.fields.items():
             field.widget.attrs = {"class":"form-control","placeholder":field.label}
 
-def userSurface(request):
 
-    return render(request,'userSurface.html')
+# 登录后的homepage()
+def homepageAfterLoginIn(request, nid):
+    user_name = UserInfo.objects.filter(id=nid).filter().first()
+    return render(request, 'homepageAfterLoginIn.html',{'user_name':user_name,'nid':nid})
 
 
+def personalEdit(request,nid):
+    sNid = str(nid)
+    new_User = user.models.UserInfo.objects.filter(id=nid).filter().first()
+    # new_User = user.models.UserInfo
+    if request.method == "GET":
+        form = UserForm(instance=new_User)
+        return render(request, 'userSurface.html', {'form': form})
+    form = UserForm(data=request.POST, instance=new_User)
+    if form.is_valid():
+        form.save()
+        return redirect('http://127.0.0.1:8000/main/'+sNid+'/homepage/')
+
+  # userSurface
+# def userSurface(request):
+#     return render(request, 'userSurface.html')
+
+
+# 管理员的界面
 def adminTable(request):
+    # user_list = UserForm()
     user_list = UserInfo.objects.all()
     return render(request, 'admin-tables.html', {'user_list':user_list})
 
@@ -137,10 +157,6 @@ def adminTableEdit(request,nid):
     if form.is_valid():
         form.save()
         return redirect('http://127.0.0.1:8000/ad/info/')
-
-
-
-
 
 def location(request):
     # dictionary for initial data with

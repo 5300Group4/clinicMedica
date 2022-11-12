@@ -1,14 +1,26 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
+    path('',views.redir,name ="redir"),
     path('doctor/', views.doctor, name='doctor'),
     path('<id>/appointment/', views.appointment, name='appointment'),
 
     # 主界面
     path('main/',views.homepage, name ='homepage'),
+
+    # 登录后的界面
+
+    path('main/<int:nid>/homepage/',views.homepageAfterLoginIn,name = "homepageAfterLoginIn"),
+
     # user自己的更新界面
-    path('update/',views.userSurface,name = 'userSurface'),
+
+    path('main/<int:nid>/update/', views.personalEdit, name='personalEdit'),
+    # 登出
+
+
+
     # 这些是admin的操作
     path('ad/info/',views.adminTable,name = 'adminTable'),
     path('ad/<int:nid>/delete/',views.adminTableDel,name='adminTableDel'),
@@ -20,3 +32,4 @@ urlpatterns = [
     path('<city>/doctor/', views.doctor, name='show_doctor'),
 
 ]
+

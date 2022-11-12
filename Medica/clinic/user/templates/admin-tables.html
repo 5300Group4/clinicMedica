@@ -29,9 +29,11 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Password</th>
-                    <th>email</th>
-                    <th>age</th>
-                    <th>option</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Doctor</th>
+                    <th>Option</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -39,8 +41,11 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Password</th>
-                    <th>email</th>
-                    <th>age</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Doctor</th>
+                    <th>Option</th>
                     {#                                            <th>Salary</th>#}
                 </tr>
                 </tfoot>
@@ -55,14 +60,17 @@
                 {#                                        </tr>#}
                 {% for obj in user_list %}
                     <tr>
-                        <td>{{ obj.id }}</td>
-                        <td>{{ obj.name }}</td>
-                        <td>{{ obj.password }}</td>
-                        <td>{{ obj.email }}</td>
-                        <td>{{ obj.age }}</td>
+                        <td>{{ obj.id}}</td>
+                        <td>{{ obj.name}}</td>
+                        <td>{{ obj.password}}</td>
+                        <td>{{ obj.age}}</td>
+                        <td>{{ obj.email}}</td>
+                        <td>{{ obj.gender}}</td>
+                        <td>{{ obj.appointment}}</td>
+
                         <td>
-                            <a class="btn btn-danger btn-xs" href="{% url 'adminTableEdit' obj.id %} ">edit</a>
-                            <a class="btn btn-primary btn-xs"
+                            <a class="btn btn-danger btn-sm" href="{% url 'adminTableEdit' obj.id %} ">edit</a>
+                            <a class="btn btn-primary btn-sm"
                                href="{% url 'adminTableDel' obj.id %}">delete</a>
                         </td>
                         >
