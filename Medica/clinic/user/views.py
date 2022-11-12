@@ -15,7 +15,8 @@ import user.models
 
 # Create your views here.
 
-
+def redir(request):
+    return redirect('http://127.0.0.1:8000/main/')
 
 
 def doctor(request, city):
