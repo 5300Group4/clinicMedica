@@ -12,6 +12,9 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="https://js.stripe.com/v3/"></script>  <!-- new -->
+        <script src="{% static 'check.js' %}"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
         <!-- Google fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
@@ -53,7 +56,7 @@
                         <br>
                         <div class="row input-group-newsletter">
                             <div class="col"><input class="form-control" name="date" id="date" type="date" placeholder="Choose the date..." aria-label="choose the date..." data-sb-validations="required, date" /></div>
-                            <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Checkout!</button></div>
+                            <div class="col-auto"><button class="btn btn-primary" id="submitBtn" type="submit">Purchase!</button></div>
                         </div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
                         <div class="invalid-feedback mt-2" data-sb-feedback="email:email">Email is not valid.</div>

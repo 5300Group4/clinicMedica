@@ -51,7 +51,6 @@ class Location(models.Model):
 class Payment(models.Model):
     pdate = models.DateField(null = True)
     username = models.CharField(max_length=32)
-    date = models.DateField(null = True)
     email = models.EmailField(max_length=32)
     status = models.CharField(max_length=32)
 

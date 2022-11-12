@@ -10,13 +10,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect
 
 
-
-
 # Create your views here.
-
-
-
-
 def doctor(request, city):
 
     # dictionary for initial data with
@@ -62,9 +56,9 @@ def appointment(request,id):
         order.save()
 
         send_mail(
-            'Test',
-            'Here is the test.',
-            '912675127@qq.com',
+            'Appointment Notification',
+            'Dear Patient, this email is to inform you that you have successfully booked an offline consultation service, please arrive at the clinic at the appointment time. Thank you for your support.',
+            'Medica Center', #Email Send Title
             [email],
         )
         return render(request, 'home.html', data_checkout)
@@ -150,5 +144,3 @@ def location(request):
     context["dataset"] = Location.objects.all()
 
     return render(request, 'location.html', context)
-
-
