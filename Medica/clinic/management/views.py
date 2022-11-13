@@ -54,13 +54,13 @@ def appointment_mag(request):
     context["dataset"] = Appointment.objects.all()
     return render(request, 'appointment_mag.html', context)
 
-def appointment_edit(request, ename):
+def appointment_edit(request, id):
     context ={}
     # add the dictionary during initialization
-    context["patient"] = Appointment.objects.filter(name = ename)
+    context["patient"] = Appointment.objects.filter(id = id)
 
     if request.method == 'POST':   # 判断采用的是何种请求
-        obj = get_object_or_404(Appointment, name = ename)
+        obj = get_object_or_404(Appointment, id = id)
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
 
@@ -77,10 +77,10 @@ def appointment_edit(request, ename):
     return render(request, 'appointment_edit.html', context)
 
 
-def appointment_delete(request,ename):
-    obj = get_object_or_404(Appointment, name = ename)
+def appointment_delete(request, id):
+    obj = get_object_or_404(Appointment, id = id)
     context ={}
-    context["patient"] = Appointment.objects.filter(name = ename)
+    context["patient"] = Appointment.objects.filter(id = id)
 
     if request.method == 'POST':   # 判断采用的是何种请求
         obj.delete()
