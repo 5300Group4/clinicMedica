@@ -49,8 +49,8 @@
                             <td>{{ obj.location }}</td>
                             <td>{{ obj.date|date:'Y-m-d'}}</td>
                             <td> 
-                                <a class="btn btn-danger btn-xs" type="submit" href="{% url 'appointment_edit' obj.name %}">edit</a>
-                                <a class="btn btn-primary btn-xs" href="{% url 'appointment_delete' obj.name %}">delete</a>
+                                <a class="btn btn-danger btn-xs" type="submit" href="{% url 'appointment_edit' obj.id %}">edit</a>
+                                <a class="btn btn-primary btn-xs" href="{% url 'appointment_delete' obj.id %}">delete</a>
                             </td>
                         </tr>
                     {% endfor %}
