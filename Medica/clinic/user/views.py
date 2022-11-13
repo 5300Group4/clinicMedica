@@ -67,7 +67,7 @@ def appointment(request,id):
             'Medica Center', #Email Send Title
             [email],
         )
-        # return render(request, 'home.html', data_checkout)
+        return render(request, 'home.html', data_checkout)
 
     return render(request, 'appointment.html', context)
 
