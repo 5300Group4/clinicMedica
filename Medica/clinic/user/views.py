@@ -13,7 +13,7 @@ from django.shortcuts import redirect
 # Create your views here.
 
 def redir(request):
-    return redirect('http://127.0.0.1:8000/main/')
+    return redirect('main/')
 
 
 def doctor(request, city):
