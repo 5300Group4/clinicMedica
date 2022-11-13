@@ -13,13 +13,13 @@ def payment(request):
     return render(request, 'payment_mag.html', context)
 
 
-def payment_edit(request, ename):
+def payment_edit(request, id):
     context = {}
     # add the dictionary during initialization
-    context["payment"] = Payment.objects.filter(username=ename)
+    context["payment"] = Payment.objects.filter(id=id)
 
     if request.method == 'POST':   # 判断采用的是何种请求
-        obj = get_object_or_404(Payment, username=ename)
+        obj = get_object_or_404(Payment, id=id)
         # fetch the object related to passed id
         # request.POST[]或request.POST.get()获取数据
 
@@ -36,10 +36,10 @@ def payment_edit(request, ename):
     return render(request, 'payment_edit.html', context)
 
 
-def payment_delete(request,ename):
-    obj = get_object_or_404(Payment, username=ename)
+def payment_delete(request,id):
+    obj = get_object_or_404(Payment, id=id)
     context = {}
-    context["payment"] = Payment.objects.filter(username=ename)
+    context["payment"] = Payment.objects.filter(id=id)
 
     if request.method == 'POST':   # 判断采用的是何种请求
         obj.delete()

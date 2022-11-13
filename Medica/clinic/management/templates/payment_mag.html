@@ -9,11 +9,11 @@
     <div class="card-header">
 
         <i class="fas fa-table me-1"></i>
-        User Table
-        <a class="btn btn-success" style="margin-bottom: 1px" href="http://127.0.0.1:8000/ad/info/add/">
+        Payment Table
+        <!-- <a class="btn btn-success" style="margin-bottom: 1px" href="http://127.0.0.1:8000/ad/info/add/">
             <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
             new User
-        </a>
+        </a> -->
     </div>
 
     <!-- <form method="post" id="app_mag_gorm">
@@ -52,8 +52,8 @@
                     <td>{{ obj.status }}</td>
 
                     <td>
-                        <a class="btn btn-danger btn-xs" type="submit" href="{% url 'payment_edit' obj.username %}">edit</a>
-                        <a class="btn btn-primary btn-xs" href="{% url 'payment_delete' obj.username %}">delete</a>
+                        <a class="btn btn-danger btn-xs" type="submit" href="{% url 'payment_edit' obj.id %}">edit</a>
+                        <a class="btn btn-primary btn-xs" href="{% url 'payment_delete' obj.id %}">delete</a>
                     </td>
                 </tr>
                 {% endfor %}

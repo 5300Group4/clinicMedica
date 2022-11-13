@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/appointment_delete.css' %}" type="text/css" media="all">
 {% block content %}
 <!-- 取值 -->
-<h4 class="fst-italic lh-1 mb-4">Are you sure to delete the following appointment?</h4>
+<h4 class="fst-italic lh-1 mb-4">Are you sure to delete the following payment?</h4>
 <h4 class="fst-italic lh-1 mb-4">Please notice this action cannot be resumed!</h4>
 {% for obj in payment %}
 <form method="post" id="contactForm" data-sb-form-api-token="API_TOKEN">
@@ -13,13 +13,13 @@
     {% csrf_token %}
     <div class="row input-group-newsletter">
         <div class="col">
-            <lable class="fw-bolder">Name: {{people.name}}</lable>
+            <lable class="fw-bolder">Name: {{obj.username}}</lable>
         </div>
     </div>
     <br>
     <div class="row input-group-newsletter">
         <div class="col">
-            <lable class="fw-bolder">Email: {{people.email}}</lable>
+            <lable class="fw-bolder">Email: {{obj.email}}</lable>
         </div>
     </div>
     <br>
@@ -29,25 +29,13 @@
     <br> 手机号暂时用不到-->
     <div class="row input-group-newsletter">
         <div class="col">
-            <lable class="fw-bolder">Description: {{people.comment}}</lable>
+            <lable class="fw-bolder">Description: {{obj.status}}</lable>
         </div>
     </div>
     <br>
     <div class="row input-group-newsletter">
         <div class="col">
-            <lable class="fw-bolder">Date: {{people.date|date:'Y-m-d'}}</lable>
-        </div>
-    </div>
-    <br>
-    <div class="row input-group-newsletter">
-        <div class="col">
-            <lable class="fw-bolder">Doctor: {{people.doctor}}</lable>
-        </div>
-    </div>
-    <br>
-    <div class="row input-group-newsletter">
-        <div class="col">
-            <lable class="fw-bolder">Loction: {{people.location}}</lable>
+            <lable class="fw-bolder">Date: {{obj.pdate|date:'Y-m-d'}}</lable>
         </div>
     </div>
     <br>
