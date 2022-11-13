@@ -13,3 +13,5 @@ WORKDIR /var/www/html/mysite1
 
 # 将当前目录文件加入到容器工作目录中（. 表示当前宿主机目录）
 ADD . /var/www/html/mysite1
+
+RUN pip install -r requirements.txt
