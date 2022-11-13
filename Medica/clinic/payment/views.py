@@ -2,6 +2,7 @@ from django.conf import settings  # new
 from django.http.response import JsonResponse  # new
 from django.views.decorators.csrf import csrf_exempt  # new
 from django.views.generic.base import TemplateView
+
 # from payment.models import Payment
 import stripe
 
@@ -56,7 +57,7 @@ def create_checkout_session(request):
 
 class SuccessView(TemplateView):
     template_name = 'success.html'
-    
+
 
 class CancelledView(TemplateView):
     template_name = 'cancelled.html'

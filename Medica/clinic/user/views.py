@@ -56,6 +56,7 @@ def appointment(request,id):
         #payment存储 - Qi
         order = Payment()
         order.email = email
+        order.username=name
         order.status = 'processing'
         order.pdate = date
         order.save()
@@ -66,7 +67,7 @@ def appointment(request,id):
             'Medica Center', #Email Send Title
             [email],
         )
-        return render(request, 'home.html', data_checkout)
+        # return render(request, 'home.html', data_checkout)
 
     return render(request, 'appointment.html', context)
 
