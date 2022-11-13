@@ -80,13 +80,17 @@ WSGI_APPLICATION = 'clinic.wsgi.application'
 #Please use MySQL 5.7
 #Succefully connectedm,please don't edit
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.SQL',
+    #     'NAME': 'medica',
+    #     'USER': 'root',
+    #     'PASSWORD': 'qi990428',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medica',
-        'USER': 'root',
-        'PASSWORD': 'qi990428',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
