@@ -8,7 +8,7 @@
     <!-- 监听 -->
     {% csrf_token %}
     <div class="row input-group-newsletter">
-        <div class="col"><input class="form-control" name="name" id="name" type="name" value="{{obj.username}}"
+        <div class="col"><input class="form-control" name="username" id="username" type="username" value="{{obj.username}}"
                 data-sb-validations="required, name" /></div>
     </div>
     <br>
@@ -28,7 +28,7 @@
     <br>
     <div class="row input-group-newsletter">
         <div class="col"><input class="form-control" name="date" id="date" type="date"
-                value="{{obj.date|date:'Y-m-d'}}" data-sb-validations="required, date" /></div>
+                value="{{obj.pdate|date:'Y-m-d'}}" data-sb-validations="required, date" /></div>
     </div>
     <br>
     <button class="btn btn-danger btn-xs" type="submit" href="{% url 'payment_mag' %}">Edit</button>
