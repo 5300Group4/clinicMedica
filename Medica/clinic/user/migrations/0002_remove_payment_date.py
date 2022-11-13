@@ -9,9 +9,3 @@ class Migration(migrations.Migration):
         ('user', '0001_initial'),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='payment',
-            name='date',
-        ),
-    ]
