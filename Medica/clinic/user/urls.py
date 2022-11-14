@@ -3,12 +3,12 @@ from . import views
 
 
 urlpatterns = [
-    path('',views.redir,name ="redir"),
+    path('', views.homepage, name="homepage"),
     path('doctor/', views.doctor, name='doctor'),
     path('<id>/appointment/', views.appointment, name='appointment'),
 
     # 主界面
-    path('main/',views.homepage, name ='homepage'),
+    # path('main/',views.homepage, name ='homepage'),
 
     # 登录后的界面
 
