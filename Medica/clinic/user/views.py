@@ -71,11 +71,6 @@ def appointment(request,id):
 
     return render(request, 'appointment.html', context)
 
-
-# 下面都是吴志洋写的
-def redir(request):
-    return redirect('http://127.0.0.1:8000/main/')
-
 # homepage
 def homepage(request):
     return render(request,'homepage.html')
