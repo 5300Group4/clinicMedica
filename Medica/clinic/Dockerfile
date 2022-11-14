@@ -1,21 +1,20 @@
-# 建立 python3.7 环境
+# 基础镜像：python3.7 环境，也可使用python3.7-alphine缩小镜像体积
 FROM python:3.7
 
 # 镜像作者
-MAINTAINER NHW
+MAINTAINER DJG
 
 # 设置 python 环境变量
 ENV PYTHONUNBUFFERED 1
 
-
-# 在容器内/var/www/html/下创建 mysite2 文件夹
-RUN mkdir -p /var/www/html/mysite2
+# 在容器内/var/www/html/下创建 mysite3文件夹
+RUN mkdir -p /var/www/html/mysite3
 
 # 设置容器内工作目录
-WORKDIR /var/www/html/mysite2
+WORKDIR /var/www/html/mysite3
 
 # 将当前目录文件拷贝一份到工作目录中（. 表示当前目录）
-ADD . /var/www/html/mysite2
+ADD . /var/www/html/mysite3
 
 # 利用 pip 安装依赖
 RUN pip install -r requirements.txt
