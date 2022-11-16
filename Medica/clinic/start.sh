@@ -7,4 +7,4 @@
 python manage.py collectstatic --noinput&&
 python manage.py makemigrations&&
 python manage.py migrate&&
-uwsgi --ini /var/www/html/mysite3/uwsgi.ini
+uwsgi --ini /var/www/html/clinic/uwsgi.ini
