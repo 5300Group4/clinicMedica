@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'clinic.wsgi.application'
 #Succefully connectedm,please don't edit
 DATABASES = {
     # 'default': {
-    #     'ENGINE': 'django.db.backends.SQL',
+    #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME': 'medica',
     #     'USER': 'root',
-    #     'PASSWORD': 'qi990428',
+    #     'PASSWORD': 'root',
     #     'HOST': '127.0.0.1',
     #     'PORT': '3306',
     # }
@@ -160,5 +160,5 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'  # use gmail interface
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'qi912675127@gmail.com' # 帐号
-EMAIL_HOST_PASSWORD = 'qtphxrswgwreovuf'  # 密码
+EMAIL_HOST_PASSWORD = 'jcprugbnwfktjoeg'  # 密码
 DEFAULT_FROM_EMAIL = 'Medica Center <qi912675127@gmail.com>'
