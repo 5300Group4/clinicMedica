@@ -88,6 +88,7 @@ def homepageAfterLoginIn(request, nid):
     return render(request, 'homepageAfterLoginIn.html', {'user_name': user_name, 'nid': nid})
 
 
+
 def personalEdit(request, nid):
     sNid = str(nid)
     new_User = user.models.UserInfo.objects.filter(id=nid).filter().first()

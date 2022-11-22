@@ -24,9 +24,12 @@ def login_view(request):
         user = UserInfo.objects.get(name=username)
         uid = str(user.id)
         if (password == user.password) and(user.id==1) :
-            return redirect('http://127.0.0.1:8000/ad/info/')
+            return render(request, 'admin-tables.html', {})
+            #return redirect('http://127.0.0.1:8000/ad/info/')
         elif (password == user.password) and (uid != 1):
-            return redirect('http://127.0.0.1:8000/main/'+uid+'/homepage/')
+            user_name = UserInfo.objects.filter(id=uid).filter().first()
+            return render(request, 'homepageAfterLoginIn.html', {'user_name': user_name, 'nid': uid})
+            #return redirect('http://127.0.0.1:8000/main/'+uid+'/homepage/')
             
         else:
             return HttpResponse('登陆失败')

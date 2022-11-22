@@ -13,6 +13,7 @@ urlpatterns = [
     # 登录后的界面
 
     path('main/<int:nid>/homepage/',views.homepageAfterLoginIn,name = "homepageAfterLoginIn"),
+    
 
     # user自己的更新界面
 
