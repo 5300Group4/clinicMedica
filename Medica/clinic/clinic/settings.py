@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-o%lutb#jk0*#&_eg%dtg-d(y0p5jq))06a0%my9et=wvddiqs1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['20.100.170.243']
 # '4.229.232.246'
 
 # Application definition
@@ -80,18 +80,18 @@ WSGI_APPLICATION = 'clinic.wsgi.application'
 #Please use MySQL 5.7
 #Succefully connectedm,please don't edit
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'medica',
-        'USER': 'root',
-        'PASSWORD': 'qi990428',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'medica',
+    #     'USER': 'root',
+    #     'PASSWORD': 'qi990428',
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 # Password validation
