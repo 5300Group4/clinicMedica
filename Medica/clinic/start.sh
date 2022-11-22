@@ -6,5 +6,5 @@
 # 4. 用 uwsgi启动 django 服务, 不使用python manage.py runserver
 python manage.py collectstatic --noinput&&
 python manage.py makemigrations&&
-python manage.py migrate&&
+python manage.py migrate --fake-initial&&
 uwsgi --ini /var/www/html/clinic/uwsgi.ini
