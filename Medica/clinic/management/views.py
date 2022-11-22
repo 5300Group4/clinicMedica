@@ -31,7 +31,8 @@ def payment_edit(request, id):
         # save
         obj.save()
         #messages.success(request, 'Successfully!')
-        return redirect("http://127.0.0.1:8000/payment_mag/")
+        return render(request, 'payment_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/payment_mag/")
 
     return render(request, 'payment_edit.html', context)
 
@@ -43,7 +44,8 @@ def payment_delete(request,id):
 
     if request.method == 'POST':   # 判断采用的是何种请求
         obj.delete()
-        return redirect("http://127.0.0.1:8000/payment_mag/")
+        return render(request, 'payment_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/payment_mag/")
 
     return render(request, 'payment_delete.html', context)
 
@@ -72,7 +74,8 @@ def appointment_edit(request, id):
         #save
         obj.save()
         #messages.success(request, 'Successfully!')
-        return redirect("http://127.0.0.1:8000/appointment_mag/")
+        return render(request, 'appointment_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/appointment_mag/")
          
     return render(request, 'appointment_edit.html', context)
 
@@ -84,7 +87,8 @@ def appointment_delete(request, id):
 
     if request.method == 'POST':   # 判断采用的是何种请求
         obj.delete()
-        return redirect("http://127.0.0.1:8000/appointment_mag/")
+        return render(request, 'appointment_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/appointment_mag/")
 
     return render(request, 'appointment_delete.html', context)
 
@@ -115,7 +119,8 @@ def location_edit(request, address):
         # save
         obj.save()
         # messages.success(request, 'Successfully!')
-        return redirect("http://127.0.0.1:8000/location_mag/")
+        return render(request, 'location_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/location_mag/")
 
     return render(request, 'location_edit.html', context)
 
@@ -126,7 +131,8 @@ def location_delete(request,id):
 
     if request.method == 'POST':   # 判断采用的是何种请求
         obj.delete()
-        return redirect("http://127.0.0.1:8000/location_mag/")
+        return render(request, 'location_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/location_mag/")
 
     return render(request, 'location_delete.html', context)
 
@@ -150,7 +156,7 @@ def location_add(request):
 
         new_location.save()
 
-
-        return redirect("http://127.0.0.1:8000/location_mag/")
+        return render(request, 'location_mag.html', {})
+        #return redirect("http://127.0.0.1:8000/location_mag/")
 
     return render(request, 'location_add.html', context)

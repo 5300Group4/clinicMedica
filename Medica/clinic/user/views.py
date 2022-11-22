@@ -12,8 +12,8 @@ from django.shortcuts import redirect
 
 # Create your views here.
 
-def redir(request):
-    return redirect('http://127.0.0.1:8000/main/')
+# def redir(request):
+#     return redirect('http://127.0.0.1:8000/main/')
 
 
 def doctor(request, city):
@@ -74,7 +74,8 @@ def appointment(request,id):
 
 # 下面都是吴志洋写的
 def redir(request):
-    return redirect('http://127.0.0.1:8000/main/')
+    return render(request,'homepage.html')
+    #return redirect('http://127.0.0.1:8000/main/')
 
 # homepage
 def homepage(request):
@@ -99,7 +100,9 @@ def personalEdit(request, nid):
     form = UserForm(data=request.POST, instance=new_User)
     if form.is_valid():
         form.save()
-        return redirect('http://127.0.0.1:8000/main/'+sNid+'/homepage/')
+        user_name = UserInfo.objects.filter(id=sNid).filter().first()
+        return render(request, 'homepageAfterLoginIn.html', {'user_name': user_name, 'nid': sNid})
+        #return redirect('http://127.0.0.1:8000/main/'+sNid+'/homepage/')
 
 
 # userSurface
