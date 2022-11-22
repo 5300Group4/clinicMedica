@@ -160,5 +160,5 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.gmail.com'  # use gmail interface
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'qi912675127@gmail.com' # 帐号
-EMAIL_HOST_PASSWORD = 'ipjkxwerfjbktekk'  # 密码
+EMAIL_HOST_PASSWORD = '*************'  # 密码
 DEFAULT_FROM_EMAIL = 'Medica Center <qi912675127@gmail.com>'
